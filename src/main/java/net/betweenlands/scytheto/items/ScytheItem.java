@@ -1,25 +1,30 @@
 package net.betweenlands.scytheto.items;
 
 import net.betweenlands.scytheto.Scytheto;
+import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.CropBlock;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.AttributeModifierSlot;
 import net.minecraft.component.type.AttributeModifiersComponent;
 import net.minecraft.component.type.ToolComponent;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.registry.tag.BlockTags;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.world.World;
 
 import java.util.List;
 
 public class ScytheItem extends ToolItem {
-    public static final Identifier BASE_ATTACK_KNOCKBACK_MODIFIER_ID = Identifier.ofVanilla("base_attack_knockback");
 
     public ScytheItem(ToolMaterial material, Settings settings) {
         super(material, settings.component(DataComponentTypes.TOOL, createToolComponent()));
@@ -45,28 +50,30 @@ public class ScytheItem extends ToolItem {
                         new EntityAttributeModifier(BASE_ATTACK_SPEED_MODIFIER_ID, attackSpeed, EntityAttributeModifier.Operation.ADD_VALUE),
                         AttributeModifierSlot.MAINHAND
                 )
-                .add(
-                        EntityAttributes.GENERIC_ATTACK_KNOCKBACK,
-                        new EntityAttributeModifier(BASE_ATTACK_KNOCKBACK_MODIFIER_ID, (double) (-10.0), EntityAttributeModifier.Operation.ADD_VALUE),
-                        AttributeModifierSlot.MAINHAND
-                )
                 .build();
     }
 
     @Override
+    public boolean canMine(BlockState state, World world, BlockPos pos, PlayerEntity miner) {
+        if (state.getBlock() instanceof CropBlock cropBlock && !cropBlock.isMature(state)) return false;
+        return super.canMine(state, world, pos, miner);
+    }
+
+    @Override
+    public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
+        if (state.getBlock() instanceof  CropBlock cropBlock) {
+            BlockState newState = world.getBlockState(pos);
+        }
+        return super.postMine(stack, world, state, pos, miner);
+    }
+
+    @Override
+    public boolean postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
+        return true;
+    }
+
+    @Override
     public void postDamageEntity(ItemStack stack, LivingEntity target, LivingEntity attacker) {
-		super.postDamageEntity(stack, target, attacker);
-
-        Scytheto.LOGGER.info("hi");
-        float f = (float)attacker.getAttributeValue(EntityAttributes.GENERIC_ATTACK_KNOCKBACK);
-        f += 1.0f;
-        if (!attacker.isOnGround()) f-= 0.5f;
-        target.takeKnockback(
-                (double) f * 0.25f,
-                (double)(-MathHelper.sin(attacker.getYaw() * (float) (Math.PI / 180.0))),
-                (double) (MathHelper.cos(attacker.getYaw() * (float) (Math.PI / 180.0)))
-        );
-
-//		return true;
+        stack.damage(1, attacker, EquipmentSlot.MAINHAND);
     }
 }

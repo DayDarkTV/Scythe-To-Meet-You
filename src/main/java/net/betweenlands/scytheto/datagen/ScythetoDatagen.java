@@ -10,5 +10,7 @@ public class ScythetoDatagen implements DataGeneratorEntrypoint {
         FabricDataGenerator.Pack pack = fabricDataGenerator.createPack();
 
         pack.addProvider(ScythetoModels::new);
+        pack.addProvider(ScythetoLang::new);
+        pack.addProvider(ScythetoItemTagGen::new);
     }
 }
