@@ -1,24 +1,15 @@
 package net.betweenlands.scytheto.client.render;
 
-import net.betweenlands.scytheto.Scytheto;
-import net.fabricmc.fabric.api.client.model.loading.v1.FabricBakedModelManager;
 import net.fabricmc.fabric.api.client.rendering.v1.BuiltinItemRendererRegistry;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.DiffuseLighting;
 import net.minecraft.client.render.VertexConsumerProvider;
-import net.minecraft.client.render.item.ItemModels;
 import net.minecraft.client.render.model.BakedModel;
 import net.minecraft.client.render.model.json.ModelTransformationMode;
-import net.minecraft.client.util.ModelIdentifier;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.data.client.Models;
 import net.minecraft.item.ItemStack;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
-
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 
 public class DynamicScytheRenderer implements BuiltinItemRendererRegistry.DynamicItemRenderer {
     @Override

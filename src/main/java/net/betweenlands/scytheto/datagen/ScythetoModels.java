@@ -1,6 +1,7 @@
 package net.betweenlands.scytheto.datagen;
 
 import net.betweenlands.scytheto.Scytheto;
+import net.betweenlands.scytheto.items.ScytheItem;
 import net.betweenlands.scytheto.items.ScythetoItems;
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput;
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider;
@@ -25,7 +26,8 @@ public class ScythetoModels extends FabricModelProvider {
 
     @Override
     public void generateItemModels(ItemModelGenerator itemModelGenerator) {
-        registerBigWeapon(ScythetoItems.DIAMOND_SCYTHE, itemModelGenerator);
+//        registerBigWeapon(ScythetoItems.DIAMOND_SCYTHE, itemModelGenerator);
+        for (ScytheItem scythe : ScythetoItems.SCYTHES) registerBigWeapon(scythe, itemModelGenerator);
     }
 
     public static void registerBigWeapon(Item item, ItemModelGenerator generator) {

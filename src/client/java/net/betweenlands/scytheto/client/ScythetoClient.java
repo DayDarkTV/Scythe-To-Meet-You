@@ -21,6 +21,6 @@ public class ScythetoClient implements ClientModInitializer {
             context.addModels(id.withPath(path -> "item/" + path + "_in_hand"));
             context.addModels(id.withPath(path -> "item/" + path + "_inventory"));
         }));
-        ModelLoadingPlugin.register(pluginContext -> pluginContext.addModels(Scytheto.getId("item/dummy_scythe")));
+//        ModelLoadingPlugin.register(pluginContext -> pluginContext.addModels(Scytheto.getId("item/dummy_scythe")));
     }
 }
