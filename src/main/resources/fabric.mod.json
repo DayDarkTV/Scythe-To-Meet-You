@@ -15,6 +15,9 @@
     ],
     "main": [
       "net.betweenlands.scytheto.Scytheto"
+    ],
+    "fabric-datagen": [
+      "net.betweenlands.scytheto.datagen.ScythetoDatagen"
     ]
   },
   "mixins": [
