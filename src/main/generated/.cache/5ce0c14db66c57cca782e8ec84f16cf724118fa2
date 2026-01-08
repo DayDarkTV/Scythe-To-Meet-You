@@ -1,8 +1,11 @@
-// 1.21.1	2026-01-06T16:18:25.1008065	Scythe To Meet You/Model Definitions
+// 1.21.1	2026-01-07T21:25:50.1353623	Scythe To Meet You/Model Definitions
 523da9a31978031bc3a69fe659ad28e5c090b697 assets\scytheto\models\item\iron_scythe_inventory.json
+6dace4820db57153395ff0b01f8f1de4e9f68012 assets\scytheto\models\item\phari_scythe_in_hand.json
 6985e1741301870d728d7c4479d3d3080a1a0c58 assets\scytheto\models\item\gold_scythe_in_hand.json
+e0f7b66a84e6588f01abbbce75b1803ffe5d46e2 assets\scytheto\models\item\phari_scythe.json
 474f51daaac9e1a7da6b341f05781a756c99d00b assets\scytheto\models\item\netherite_scythe_inventory.json
 e0f7b66a84e6588f01abbbce75b1803ffe5d46e2 assets\scytheto\models\item\diamond_scythe.json
+29f7c9ba445f11597995a8390a58597cffb7838c assets\scytheto\models\item\phari_scythe_inventory.json
 e0f7b66a84e6588f01abbbce75b1803ffe5d46e2 assets\scytheto\models\item\netherite_scythe.json
 e0f7b66a84e6588f01abbbce75b1803ffe5d46e2 assets\scytheto\models\item\iron_scythe.json
 5418b82a764778aa4798eb21ea92ca5f21432551 assets\scytheto\models\item\netherite_scythe_in_hand.json

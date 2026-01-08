@@ -1,9 +1,10 @@
 package net.betweenlands.scytheto.items;
 
-import net.betweenlands.scytheto.Scytheto;
+import net.betweenlands.scytheto.mixin.CropBlockAccessor;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.block.CropBlock;
+import net.minecraft.block.StemBlock;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.AttributeModifierSlot;
 import net.minecraft.component.type.AttributeModifiersComponent;
@@ -17,9 +18,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ToolItem;
 import net.minecraft.item.ToolMaterial;
 import net.minecraft.registry.tag.BlockTags;
-import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.MathHelper;
 import net.minecraft.world.World;
 
 import java.util.List;
@@ -56,13 +55,16 @@ public class ScytheItem extends ToolItem {
     @Override
     public boolean canMine(BlockState state, World world, BlockPos pos, PlayerEntity miner) {
         if (state.getBlock() instanceof CropBlock cropBlock && !cropBlock.isMature(state)) return false;
+        if (state.getBlock() instanceof StemBlock) return false;
         return super.canMine(state, world, pos, miner);
     }
 
     @Override
     public boolean postMine(ItemStack stack, World world, BlockState state, BlockPos pos, LivingEntity miner) {
-        if (state.getBlock() instanceof  CropBlock cropBlock) {
-            BlockState newState = world.getBlockState(pos);
+        if (state.getBlock() instanceof CropBlock cropBlock) {
+            BlockState newState = state.with(((CropBlockAccessor) cropBlock).scytheto$getAgeProperty(), 0);
+            if (!world.isAir(pos.down())) world.setBlockState(pos, newState);
+            else world.setBlockState(pos.down(), newState); //cheap fix ... TODO deal with two-high crops?
         }
         return super.postMine(stack, world, state, pos, miner);
     }

@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_netherite_scythe": {
+      "conditions": {
+        "items": [
+          {
+            "items": "scytheto:netherite_scythe"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "scytheto:phari_scythe_smithing"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_netherite_scythe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "scytheto:phari_scythe_smithing"
+    ]
+  }
+}

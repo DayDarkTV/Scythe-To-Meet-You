@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "minecraft:pink_petals"
+  },
+  "base": {
+    "item": "scytheto:netherite_scythe"
+  },
+  "result": {
+    "count": 1,
+    "id": "scytheto:phari_scythe"
+  },
+  "template": []
+}

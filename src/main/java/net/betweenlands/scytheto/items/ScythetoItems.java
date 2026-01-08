@@ -18,6 +18,7 @@ public class ScythetoItems {
     public static final ScytheItem IRON_SCYTHE = registerScythe("iron_scythe", new ScytheItem(ToolMaterials.IRON, new Item.Settings().attributeModifiers(ScytheItem.createAttributeModifiers(ToolMaterials.IRON, 4, -2.7F))));
     public static final ScytheItem GOLD_SCYTHE = registerScythe("gold_scythe", new ScytheItem(ToolMaterials.GOLD, new Item.Settings().attributeModifiers(ScytheItem.createAttributeModifiers(ToolMaterials.GOLD, 4, -2.7F))));
     public static final ScytheItem DIAMOND_SCYTHE = registerScythe("diamond_scythe", new ScytheItem(ToolMaterials.DIAMOND, new Item.Settings().attributeModifiers(ScytheItem.createAttributeModifiers(ToolMaterials.DIAMOND, 4, -2.7F))));
+    public static final ScytheItem PHARI_SCYTHE = registerScythe("phari_scythe", new ScytheItem(ToolMaterials.NETHERITE, new Item.Settings().attributeModifiers(ScytheItem.createAttributeModifiers(ToolMaterials.NETHERITE, 4, -2.7F))));
     public static final ScytheItem NETHERITE_SCYTHE = registerScythe("netherite_scythe", new ScytheItem(ToolMaterials.NETHERITE, new Item.Settings().attributeModifiers(ScytheItem.createAttributeModifiers(ToolMaterials.NETHERITE, 4, -2.7F))));
 
     public static void init() {

@@ -1,0 +1,12 @@
+package net.betweenlands.scytheto.mixin;
+
+import net.minecraft.block.CropBlock;
+import net.minecraft.state.property.IntProperty;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.gen.Invoker;
+
+@Mixin(CropBlock.class)
+public interface CropBlockAccessor {
+    @Invoker("getAgeProperty")
+    IntProperty scytheto$getAgeProperty();
+}

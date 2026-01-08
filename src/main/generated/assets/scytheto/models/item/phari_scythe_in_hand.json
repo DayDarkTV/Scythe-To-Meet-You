@@ -1,0 +1,6 @@
+{
+  "parent": "scytheto:item/big_weapon",
+  "textures": {
+    "layer0": "scytheto:item/phari_scythe"
+  }
+}

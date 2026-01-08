@@ -12,5 +12,6 @@ public class ScythetoDatagen implements DataGeneratorEntrypoint {
         pack.addProvider(ScythetoModels::new);
         pack.addProvider(ScythetoLang::new);
         pack.addProvider(ScythetoItemTagGen::new);
+        pack.addProvider(ScythetoRecipeGen::new);
     }
 }

@@ -15,6 +15,7 @@ public class ScythetoLang extends FabricLanguageProvider {
     @Override
     public void generateTranslations(RegistryWrapper.WrapperLookup wrapperLookup, TranslationBuilder builder) {
         builder.add(ScythetoItems.NETHERITE_SCYTHE, "Netherite Scythe");
+        builder.add(ScythetoItems.PHARI_SCYTHE, "Phari Scythe");
         builder.add(ScythetoItems.DIAMOND_SCYTHE, "Diamond Scythe");
         builder.add(ScythetoItems.GOLD_SCYTHE, "Gold Scythe");
         builder.add(ScythetoItems.IRON_SCYTHE, "Iron Scythe");

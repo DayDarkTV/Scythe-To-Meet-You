@@ -26,6 +26,7 @@ public class ScythetoItemTagGen extends FabricTagProvider.ItemTagProvider {
 
         addAllScythes(this.getOrCreateTagBuilder(ItemTags.BREAKS_DECORATED_POTS));
         addAllScythes(this.getOrCreateTagBuilder(ItemTags.DURABILITY_ENCHANTABLE));
+
     }
 
     private FabricTagProvider<Item>.FabricTagBuilder addAllScythes(FabricTagBuilder builder) {
@@ -34,6 +35,7 @@ public class ScythetoItemTagGen extends FabricTagProvider.ItemTagProvider {
                 .add(ScythetoItems.IRON_SCYTHE)
                 .add(ScythetoItems.GOLD_SCYTHE)
                 .add(ScythetoItems.DIAMOND_SCYTHE)
+                .add(ScythetoItems.PHARI_SCYTHE)
                 .add(ScythetoItems.NETHERITE_SCYTHE);
     }
 }
